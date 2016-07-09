@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>API Exercise (SPOTIFY API)</title>
+  <link rel="stylesheet" href="stylesheet.css">
+  <!-- Jquery library -->
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <!-- Bootstrap library -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script src="./app.js"></script>
+</head>
+<body>
+  <div class = "container">
+    <h1>Search for a Track</h1>
+    <p>
+      Type in a track name and click on "search".
+    </p>
+    <form id="search-form">
+      <input type="text" id="query" value="" class="form-control" placeholder="Type the track title" />
+      <input type="submit" id="search" class="btn btn-primary" value="Search"  />
+    </form>
+    <div id="results">
+
+    </div>
+  </div>
+</body>
+</html>
