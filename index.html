@@ -10,17 +10,38 @@
   <script src="./app.js"></script>
 </head>
 <body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <p class="text-center">HDB
+          <span class="	glyphicon glyphicon-home"></span>
+          SPOTIFY
+        </p>
+      </div>
+    </div>
+  </nav>
   <div class = "container">
-    <h1>Search for a Track</h1>
-    <p>
-      Type in a track name and click on "search".
-    </p>
-    <form id="search-form">
-      <input type="text" id="query" value="" class="form-control" placeholder="Type the track title" />
-      <input type="submit" id="search" class="btn btn-primary" value="Search"  />
-    </form>
-    <div id="results">
-
+    <div class = "col-md-8">
+      <h1>HDB prices by location</h1>
+      <p>
+        Key in the location and click on "search".
+      </p>
+      <form id="hdb-form">
+        <input type="text" id="hdbquery" value="" class="form-control" placeholder="Type in the location" />
+        <input type="submit" id="search" class="btn btn-primary" value="Search"  />
+      </form>
+      <div id="hdbresults"></div>
+    </div>
+    <div class = "col-md-4">
+      <h1>Search for a Track</h1>
+      <p>
+        Type in a track name and click on "search".
+      </p>
+      <form id="spotify-form">
+        <input type="text" id="spotifyquery" value="" class="form-control" placeholder="Type the track title" />
+        <input type="submit" id="search" class="btn btn-primary" value="Search"  />
+      </form>
+      <div id="spotifyresults"></div>
     </div>
   </div>
 </body>
