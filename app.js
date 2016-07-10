@@ -13,9 +13,9 @@ $(document).ready(function () {
       },
       success: function (data) {
         console.log(data)
-        $('#hdbresults').append('<div class="table-responsive"><table class="table table-hover" id="hdbtable"><thead class="thead-inverse"><tr><th>Street Name</th><th>Size (in sqm)</th><th>Storey</th><th>Price</th><th>Transaction Date</th><th>Per sqm price</th></tr></thead><tbody></td></tr></tbody></table></div>')
+        $('#hdbresults').append('<div class="table-responsive"><table class="table table-hover" id="hdbtable"><thead class="thead-inverse"><tr><th>Location</th><th>Street Name</th><th>Size (in sqm)</th><th>Storey</th><th>Price</th><th>Transaction Date</th><th>Per sqm price</th></tr></thead><tbody></td></tr></tbody></table></div>')
         $.each(data.result.records, function (index, item) {
-          $('#hdbtable').append('<tr><th scope="row">' + item.street_name + '</th><td>' + item.floor_area_sqm + '</td><td>' + item.storey_range + '</td><td>' + item.resale_price + '</td><td>' + item.month + '</td><td>' + persqm(item.resale_price, item.floor_area_sqm))
+          $('#hdbtable').append('<tr><th scope="row">' + item.town + '</th><th scope="row">' + item.street_name + '</th><td>' + item.floor_area_sqm + '</td><td>' + item.storey_range + '</td><td>' + item.resale_price + '</td><td>' + item.month + '</td><td>' + persqm(item.resale_price, item.floor_area_sqm))
         })
       }
     })
