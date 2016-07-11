@@ -1,4 +1,4 @@
-/* globals $ */
+/* globals $ _ */
 $(document).ready(function () {
   $('#hdb-form').on('submit', function (event) {
     event.preventDefault()
@@ -9,13 +9,15 @@ $(document).ready(function () {
       data: {
         resource_id: '83b2fc37-ce8c-4df4-968b-370fd818138b',
         q: query,
-        limit: 30
+        limit: 1000
       },
       success: function (data) {
         console.log(data)
         $('#hdbresults').append('<div class="table-responsive"><table class="table table-hover" id="hdbtable"><thead class="thead-inverse"><tr><th>Location</th><th>Street Name</th><th>Size (in sqm)</th><th>Storey</th><th>Price</th><th>Transaction Date</th><th>Per sqm price</th></tr></thead><tbody></td></tr></tbody></table></div>')
-        $.each(data.result.records, function (index, item) {
-          $('#hdbtable').append('<tr><th scope="row">' + item.town + '</th><th scope="row">' + item.street_name + '</th><td>' + item.floor_area_sqm + '</td><td>' + item.storey_range + '</td><td>' + item.resale_price + '</td><td>' + item.month + '</td><td>' + persqm(item.resale_price, item.floor_area_sqm))
+        var sortedData = _.sortBy(data.result.records, 'month')
+        console.log(sortedData)
+        $.each(sortedData.reverse(), function (index, item) {
+          $('#hdbtable').append('<tr class="text-center"><th scope="row">' + item.town + '</th><th scope="row">' + item.street_name + '</th><td>' + item.floor_area_sqm + '</td><td>' + item.storey_range + '</td><td>' + item.resale_price + '</td><td>' + item.month + '</td><td>' + persqm(item.resale_price, item.floor_area_sqm))
         })
       }
     })

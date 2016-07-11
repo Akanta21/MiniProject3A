@@ -1,0 +1,22 @@
+{
+  "name": "miniproject",
+  "version": "1.0.0",
+  "description": "Dashboard that combines Spotify access and HDB pricing",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Akanta21/Miniproject3a.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Akanta21/Miniproject3a/issues"
+  },
+  "homepage": "https://github.com/Akanta21/Miniproject3a#readme",
+  "dependencies": {
+    "underscore": "^1.8.3"
+  }
+}
