@@ -16,15 +16,16 @@ function getHouse (element) {
     data: {
       resource_id: '83b2fc37-ce8c-4df4-968b-370fd818138b',
       q: query,
-      limit: 1000
+      limit: 500
     },
+    dataType: 'jsonp',
     success: function (data) {
       // console.log(data)
-      $('#hdbresults').append('<div class="table-responsive"><table class="table table-hover" id="hdbtable"><thead class="thead-inverse"><tr><th>Town</th><th>Street Name</th><th>Block</th><th>Built in</th><th>Size (in sqm)</th><th>Storey</th><th>Price</th><th>Transaction Date</th><th>Per sqm price</th></tr></thead><tbody></td></tr></tbody></table></div>')
-      var sortedData = _.sortBy(data.result.records, 'month')
+      $('#hdbresults').append('<div class="table-responsive"><table class="table table-hover" id="hdbtable"><thead class="thead-inverse"><tr><th>Street Name</th><th>Block</th><th>Built in</th><th>Size (in sqm)</th><th>Storey</th><th>Price</th><th>Transaction Date</th><th>Per sqm price</th></tr></thead><tbody></td></tr></tbody></table></div>')
+      var sortedData = _.sortBy(data.result.records, 'lease_commence_date')
       console.log('This is the data length upon sorting: ' + sortedData.length)
       $.each(sortedData.reverse(), function (index, item) {
-        $('#hdbtable').append('<tr class="text-center"><th scope="row">' + item.town + '</th><th scope="row">' + item.street_name + '</th><th scope="row">' + item.block + '</th><td>' + item.lease_commence_date + '</td><td>' + item.floor_area_sqm+ '</td><td>' + item.storey_range + '</td><td>' + item.resale_price + '</td><td>' + item.month + '</td><td>' + persqm(item.resale_price, item.floor_area_sqm))
+        $('#hdbtable').append('<tr class="text-center"><th scope="row">' + item.street_name + '</th><th scope="row">' + item.block + '</th><td>' + item.lease_commence_date + '</td><td>' + item.floor_area_sqm+ '</td><td>' + item.storey_range + '</td><td>' + item.resale_price + '</td><td>' + item.month + '</td><td>' + persqm(item.resale_price, item.floor_area_sqm))
       })
     }
   })
@@ -36,6 +37,7 @@ $(document).ready(function () {
       resource_id: '83b2fc37-ce8c-4df4-968b-370fd818138b',
       limit: 25000
     },
+    dataType: 'jsonp',
     success: function (data) {
       var sortedData = _.sortBy(data.result.records, 'month')
       console.log(sortedData.length)
@@ -43,7 +45,7 @@ $(document).ready(function () {
       var yearArray = []
       var locationArray = []
       $.each(sortedData.reverse(), function (index, item) {
-        priceArray.push(+item.resale_price)
+        priceArray.push(pitem.resale_price)
         yearArray.push(item.lease_commence_date)
         locationArray.push(item.town)
         if (priceArray.length === 25000) {
